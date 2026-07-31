@@ -1,0 +1,26 @@
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+local MBF = {
+	2753915549,
+	85211729168715,
+	4442272183,
+	79091703265657,
+	7449423635,
+	100117331123089
+}
+
+local placeId = game.PlaceId
+
+if table.find(MBF, placeId) then
+	if getgenv().Gunmar_Mode == "Test" then
+		loadstring(game:HttpGet("https://luaegis.net/scripts/v4/loaders/7d577f7d-60f7-4304-af30-d8021d49727d.lua"))()
+	elseif getgenv().Gunmar_Mode == "Auto Bounty" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/gunmarsad/Gunmar-Hub/refs/heads/main/Auto%20Bounty.lua"))()
+	else
+		warn("Invalid Gunmar_Mode:", tostring(getgenv().Gunmar_Mode))
+	end
+else
+	warn("This game is not supported yet.")
+end
